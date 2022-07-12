@@ -2,22 +2,19 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const fetchGrandExchangeData = async ()=>{
+    const url = "https://prices.runescape.wiki/api/v1/osrs/mapping";
+    const response = await fetch(url, {mode: "cors"});
+    const data = await response.json();
+    console.log(data[0]);
+  };
+
+  fetchGrandExchangeData();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
     </div>
   );
 }
