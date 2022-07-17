@@ -13,8 +13,11 @@ const useGeItem = ()=>{
     
     const ids = data.map(item => item.id);
     const itemId = ids[Math.floor(Math.random() * ids.length)]
+
+    const item = data.filter(item => item.id === itemId)[0];
     const itemSrc = `https://secure.runescape.com/m=itemdb_oldschool/obj_sprite.gif?id=${itemId}`
-    setItem(itemSrc);
+    console.log(item);
+    setItem(item);
   };
 
   useEffect(()=>{
@@ -30,17 +33,14 @@ function App() {
 //https://secure.runescape.com/m=itemdb_oldschool/obj_sprite.gif?id=3200 <---adamant halberd
 
  const {item, fetchItem} = useGeItem([]);
-  
-
- useEffect(()=>{
-  fetchItem();
- }, [])
-
-
 
   return (
     <div className="App">
-        <img src={item} height="100px" width="100px"/>
+      {
+        item && Object.keys(item).map(key =>{
+          return <p>{`${key}: ${item[key]}`}</p>
+        })
+      }
     </div>
   );
 }
