@@ -13,12 +13,11 @@ const useGeItem = ()=>{
     
     const ids = data.map(item => item.id);
     const itemId = ids[Math.floor(Math.random() * ids.length)]
-    //console.log(data.filter((item)=>item.id == itemId));
     const itemSrc = `https://secure.runescape.com/m=itemdb_oldschool/obj_sprite.gif?id=${itemId}`
     setItem(itemSrc);
   };
 
-  useEffect = (()=>{
+  useEffect(()=>{
     fetchItem();
   }, []);  
 
@@ -33,7 +32,10 @@ function App() {
  const {item, fetchItem} = useGeItem([]);
   
 
+ useEffect(()=>{
   fetchItem();
+ }, [])
+
 
 
   return (
