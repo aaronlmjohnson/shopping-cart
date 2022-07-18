@@ -7,20 +7,23 @@ import categoryData from './categoryData.json';
 const useGeItem = ()=>{
   const [item, setItem] = useState([]);
 
-  const fetchItem = async ()=>{
+  const fetchItem = async (name)=>{
     const PAGE_LENGTH = 12; //Number of items displayed on GE Item page. 
     const NUM_OF_A_ITEMS = categoryData.alpha[1].items;
 
     const proxyPrefix = "https://cors-anywhere.herokuapp.com/";
-    const url = `${proxyPrefix}https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/items.json?category=1&alpha=c&page=10`;
-    //By Category: https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/category.json?category=9
+    const url = `https://prices.runescape.wiki/api/v1/osrs/mapping`;
+    //wiki ge complete item list https://prices.runescape.wiki/api/v1/osrs/mapping
+    //wiki search by specific item with id https://prices.runescape.wiki/api/v1/osrs/latest?id=10344 <- 3rd age amulet
     
     const response = await fetch(url, {mode: 'cors'});
     
     const data = await response.json();
 
     // console.log(data);
-    console.log(data);
+    console.log(data.filter((item)=>{}))
+    
+    //*** Might be able to use the RS Wiki API to filter items by name, get that ID number, and then apply it to RS GE API to get pricing info */
 
     //when searching for an item
       //they're displayed by page
