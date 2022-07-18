@@ -1,0 +1,113 @@
+{
+    "types": [],
+    "alpha": [
+      {
+        "letter": "#",
+        "items": 23
+      },
+      {
+        "letter": "a",
+        "items": 347
+      },
+      {
+        "letter": "b",
+        "items": 472
+      },
+      {
+        "letter": "c",
+        "items": 171
+      },
+      {
+        "letter": "d",
+        "items": 238
+      },
+      {
+        "letter": "e",
+        "items": 121
+      },
+      {
+        "letter": "f",
+        "items": 81
+      },
+      {
+        "letter": "g",
+        "items": 215
+      },
+      {
+        "letter": "h",
+        "items": 56
+      },
+      {
+        "letter": "i",
+        "items": 112
+      },
+      {
+        "letter": "j",
+        "items": 40
+      },
+      {
+        "letter": "k",
+        "items": 41
+      },
+      {
+        "letter": "l",
+        "items": 78
+      },
+      {
+        "letter": "m",
+        "items": 280
+      },
+      {
+        "letter": "n",
+        "items": 25
+      },
+      {
+        "letter": "o",
+        "items": 105
+      },
+      {
+        "letter": "p",
+        "items": 151
+      },
+      {
+        "letter": "q",
+        "items": 0
+      },
+      {
+        "letter": "r",
+        "items": 290
+      },
+      {
+        "letter": "s",
+        "items": 491
+      },
+      {
+        "letter": "t",
+        "items": 248
+      },
+      {
+        "letter": "u",
+        "items": 51
+      },
+      {
+        "letter": "v",
+        "items": 43
+      },
+      {
+        "letter": "w",
+        "items": 123
+      },
+      {
+        "letter": "x",
+        "items": 4
+      },
+      {
+        "letter": "y",
+        "items": 31
+      },
+      {
+        "letter": "z",
+        "items": 54
+      }
+    ]
+  }

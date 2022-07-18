@@ -1,24 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from 'react';
+import itemList from './itemListData.json';
+import categoryData from './categoryData.json';
 
 const useGeItem = ()=>{
   const [item, setItem] = useState([]);
 
   const fetchItem = async ()=>{
-    const url = "https://prices.runescape.wiki/api/v1/osrs/mapping";
-    const response = await fetch(url, {mode: "cors"});
+    const PAGE_LENGTH = 12; //Number of items displayed on GE Item page. 
+    const NUM_OF_A_ITEMS = categoryData.alpha[1].items;
+
+    const proxyPrefix = "https://cors-anywhere.herokuapp.com/";
+    const url = `${proxyPrefix}https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/items.json?category=1&alpha=c&page=10`;
+    //By Category: https://secure.runescape.com/m=itemdb_oldschool/api/catalogue/category.json?category=9
+    
+    const response = await fetch(url, {mode: 'cors'});
     
     const data = await response.json();
-    
-    const ids = data.map(item => item.id);
-    const itemId = ids[Math.floor(Math.random() * ids.length)]
 
-    const item = data.filter(item => item.id === itemId)[0];
-    const itemSrc = `https://secure.runescape.com/m=itemdb_oldschool/obj_sprite.gif?id=${itemId}`
-    console.log(item);
-    setItem(item);
+    // console.log(data);
+    console.log(data);
+
+    //when searching for an item
+      //they're displayed by page
+      //first letter is a given
+      //when the second letter is typed
+        //check if any item has that 2nd character 
+          //if that may be the correct page
+            //repeat again for the 3rd character
+    
   };
+
+
 
   useEffect(()=>{
     fetchItem();
@@ -29,8 +43,6 @@ const useGeItem = ()=>{
 
 
 function App() {
-//endpoint for accessing ge item images 
-//https://secure.runescape.com/m=itemdb_oldschool/obj_sprite.gif?id=3200 <---adamant halberd
 
  const {item, fetchItem} = useGeItem([]);
 
