@@ -1,0 +1,23 @@
+.item-card {
+    display: flex;
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap:10px;
+}
+
+.item-card > h1{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item-examine {
+    font-style: italic;
+}
+
+.item-icon {
+}
