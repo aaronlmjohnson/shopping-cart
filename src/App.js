@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import Searchbar from './Searchbar';
+import ItemCard from './ItemCard';
 
 
 const useGeItem = ()=>{
@@ -39,6 +40,7 @@ function App() {
   return (
     <div className="App">
       <Searchbar />
+      <ItemCard name={"3rd Age Amulet"} />
     </div>
   );
 }
