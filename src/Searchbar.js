@@ -1,7 +1,8 @@
-const Searchbar = ()=>{
+const Searchbar = (props)=>{
+    const {fetchItems} = props;
     return (
         <div id="searchbar">
-            <input type="text"></input>
+            <input type="text" onChange={(e)=>fetchItems(e.target.value)}></input>
         </div>
     )
 }

@@ -4,10 +4,10 @@ import Searchbar from './Searchbar';
 import ItemCard from './ItemCard';
 
 
-const useGeItem = ()=>{
-  const [item, setItem] = useState([]);
+const useGeItems = ()=>{
+  const [item, setItems] = useState([]);
 
-  const fetchItem = async (name)=>{
+  const fetchItems = async (name)=>{
     const url = `https://prices.runescape.wiki/api/v1/osrs/mapping`;
     //wiki ge complete item list https://prices.runescape.wiki/api/v1/osrs/mapping
     //wiki search by specific item with id https://prices.runescape.wiki/api/v1/osrs/latest?id=10344 <- 3rd age amulet
@@ -16,31 +16,26 @@ const useGeItem = ()=>{
     
     const data = await response.json();
 
-    //console.log(data);
-    //TODO: Implement simple search bar to search item by name and display the item names that match on screen
-    const id = data.filter((item)=> item.name[0].toLowerCase() === '3' )
-    console.log(id);
-    
+    const filteredItems = data.filter((item)=> item.name.toLowerCase().includes(name));
+    setItems(filteredItems);
   };
 
-
-
   useEffect(()=>{
-    fetchItem();
+    fetchItems();
   }, []);  
 
-  return {item, fetchItem}
+  return {item, fetchItems}
 }
 
 
 function App() {
 
- const {item, fetchItem} = useGeItem([]);
+ const {items, fetchItems} = useGeItems([]);
 
   return (
     <div className="App">
-      <Searchbar />
-      <ItemCard name={"3rd Age Amulet"} />
+      <Searchbar fetchItems={fetchItems}/>
+      <ItemCard items={items} />
     </div>
   );
 }
