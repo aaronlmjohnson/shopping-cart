@@ -1,8 +1,10 @@
 const ItemCard = (props)=>{
-    const  {name, id} = props.item;
+    const  {name, examine, icon, id} = props.item;
     return (
-        <li className="item-card" key={id}>
-            {name}
+        <li className="item-card">
+            <h1 className="item-name">{name}</h1>
+            <img src="#" alt="Grand Exchange item" />
+            <p className="item-examine">{examine}</p>
         </li>
     )
 }

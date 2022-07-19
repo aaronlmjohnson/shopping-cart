@@ -13,6 +13,7 @@ const useGeItems = ()=>{
       const data = await response.json();
   
       const filteredItems = data.filter((item)=> item.name.toLowerCase().includes(name));
+      console.log(filteredItems);
       
       setItems(filteredItems.length < 50 ? filteredItems : filteredItems.slice(0, 50));
     };

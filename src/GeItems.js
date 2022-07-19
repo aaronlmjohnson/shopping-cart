@@ -7,7 +7,7 @@ const GeItems = (props)=>{
     return (
         <ul className="geItems">
             {
-                items && items.map((item)=> <ItemCard item={item}/>)
+                items && items.map((item)=> <ItemCard item={item} key={item.id}/>)
             }
         </ul>
     )
