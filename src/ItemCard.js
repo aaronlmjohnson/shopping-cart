@@ -1,8 +1,9 @@
 const ItemCard = (props)=>{
+    const  {name, id} = props.item;
     return (
-        <div className="item-card">
-            <p>{props.name}</p>
-        </div>
+        <li className="item-card" key={id}>
+            {name}
+        </li>
     )
 }
 

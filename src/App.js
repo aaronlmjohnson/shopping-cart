@@ -2,10 +2,11 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import Searchbar from './Searchbar';
 import ItemCard from './ItemCard';
+import GeItems from './GeItems';
 
 
 const useGeItems = ()=>{
-  const [item, setItems] = useState([]);
+  const [items, setItems] = useState([]);
 
   const fetchItems = async (name)=>{
     const url = `https://prices.runescape.wiki/api/v1/osrs/mapping`;
@@ -24,7 +25,7 @@ const useGeItems = ()=>{
     fetchItems();
   }, []);  
 
-  return {item, fetchItems}
+  return {items, fetchItems}
 }
 
 
@@ -35,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <Searchbar fetchItems={fetchItems}/>
-      <ItemCard items={items} />
+      <GeItems items={items}/>
     </div>
   );
 }
