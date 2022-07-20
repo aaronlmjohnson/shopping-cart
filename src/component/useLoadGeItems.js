@@ -11,12 +11,13 @@ const useLoadGeItems = ()=>{
       const response = await fetch(url, {mode: 'cors'});
       
       const data = await response.json();
-      console.log(data);
+
       setItems(data);
     };
   
     useEffect(()=>{
       fetchItems();
+      console.log("API loaded");
     }, []);  
   
     return {items, fetchItems}

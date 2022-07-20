@@ -1,8 +1,8 @@
 const Searchbar = (props)=>{
-    const {fetchItems} = props;
+    const {filterItemsByName} = props;
     return (
         <div id="searchbar">
-            <input type="text" onChange={(e)=>fetchItems(e.target.value)}></input>
+            <input type="text" onChange={(e)=>filterItemsByName(e.target.value)}></input>
         </div>
     )
 }
