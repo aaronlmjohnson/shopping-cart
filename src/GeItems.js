@@ -3,12 +3,13 @@ import "./GeItems.css";
 
 const GeItems = (props)=>{
 
-    const { items } = props;
+    const { items, prices } = props;
+    // console.log(items[0]);
 
     return (
         <ul className="ge-items">
             {
-                items && items.map((item)=> <ItemCard item={item} key={item.id}/>)
+                items && items.map((item)=> <ItemCard item={item} price = {prices[item.id]} key={item.id}/>)
             }
         </ul>
     )

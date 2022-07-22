@@ -11,14 +11,14 @@ import useLoadGePrices from './component/useLoadGePrices';
 // }
 function App() {
 
-  const {items, fetchItems} = useLoadGeItems([]);
-  const {prices, fetchPrices} = useLoadGePrices([]);
+  const {items} = useLoadGeItems([]);
+  const {prices} = useLoadGePrices([]);
   const {filteredItems, filterItemsByName} = useFilterGeItems(items);
 
   return (
     <div className="App">
       <Searchbar filterItemsByName={filterItemsByName}/>
-      <GeItems items={filteredItems}/>
+      <GeItems items={filteredItems} prices={prices}/>
     </div>
   );
 }

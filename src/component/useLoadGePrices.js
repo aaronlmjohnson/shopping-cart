@@ -11,7 +11,6 @@ const useLoadGePrices = ()=>{
       const response = await fetch(url, {mode: 'cors'});
       
       const data = await response.json();
-      console.log(data.data[3200]);
       setPrices(data.data);
     };
   
