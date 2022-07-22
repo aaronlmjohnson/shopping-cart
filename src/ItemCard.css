@@ -18,5 +18,9 @@
     font-style: italic;
 }
 
-.item-icon {
+.price-div {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
 }
+
