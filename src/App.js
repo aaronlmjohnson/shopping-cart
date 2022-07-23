@@ -1,9 +1,9 @@
 import './App.css';
-import Searchbar from './Searchbar';
 import GeItems from './GeItems';
 import useFilterGeItems from './component/usefilterGeItems';
 import useLoadGeItems from './component/useLoadGeItems';
 import useLoadGePrices from './component/useLoadGePrices';
+import Navbar from './component/Navbar';
 
 
 // for(let i = 0; i < 121; i+=12){
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <Searchbar filterItemsByName={filterItemsByName}/>
+      <Navbar filterItemsByName={filterItemsByName}/>
       <GeItems items={filteredItems} prices={prices}/>
     </div>
   );

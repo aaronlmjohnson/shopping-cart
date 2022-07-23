@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    background: darkblue;
+    margin-bottom: 20px;
+    padding: 20px 0;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+#checkout-icon {
+    width: 40px;
+}
