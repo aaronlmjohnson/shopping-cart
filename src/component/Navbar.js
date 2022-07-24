@@ -8,7 +8,7 @@ const Navbar = (props)=>{
         <nav >
             <a href="#">Home</a>
             <Searchbar filterItemsByName={filterItemsByName}/>
-            <a href="#"><img src="https://oldschool.runescape.wiki/images/Basket.png?248b4" alt="Basket" id="checkout-icon"/></a>
+            <a href="#">0<img src="https://oldschool.runescape.wiki/images/Basket.png?248b4" alt="Basket" id="checkout-icon"/></a>
         </nav>
     )
 }
