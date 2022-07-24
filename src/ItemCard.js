@@ -2,7 +2,7 @@ import './ItemCard.css';
 
 const ItemCard = (props)=>{
     const  {name, examine, icon, id} = props.item;
-    const { price } = props;
+    const price  = props.price ? props.price : {low: 0} ;
     return (
         <li className="item-card">
             <h1 className="item-name">{name}</h1>
