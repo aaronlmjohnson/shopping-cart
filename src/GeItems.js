@@ -1,15 +1,25 @@
 import ItemCard from "./ItemCard";
+import {useState} from 'react'
 import "./GeItems.css";
 
 const GeItems = (props)=>{
 
     const { items, prices, addToCart } = props;
-    // console.log(items[0]);
+    const [quantity, setQuantity] = useState(0);
 
     return (
         <ul className="ge-items">
             {
-                items && items.map((item)=> <ItemCard item={item} price = {prices[item.id]} key={item.id} addToCart={addToCart}/>)
+                items && items.map((item)=>{ 
+                return <ItemCard 
+                item={item} 
+                price = {prices[item.id]} 
+                key={item.id} 
+                addToCart={addToCart}
+                setQuantity={setQuantity}
+                quantity={quantity}
+                />
+                })
             }
         </ul>
     )

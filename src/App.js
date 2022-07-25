@@ -16,8 +16,11 @@ function App() {
   const { prices } = useLoadGePrices([]);
   const { filteredItems, filterItemsByName } = useFilterGeItems(items);
   const [ cart, setCart ] =  useState({});
+  
 
   const addToCart = (e, item, quantity)=>{
+    if(quantity < 1) return;
+    
     setCart(prevCart =>{
       prevCart[item] = quantity;
       return prevCart;
@@ -29,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <Navbar filterItemsByName={filterItemsByName}/>
-      <GeItems items={filteredItems} prices={prices} addToCart={addToCart}/>
+      <GeItems items={filteredItems} prices={prices} addToCart={addToCart} />
     </div>
   );
 }

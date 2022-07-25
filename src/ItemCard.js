@@ -1,8 +1,9 @@
+import QuantitySelect from './component/QuantitySelect';
 import './ItemCard.css';
 
 const ItemCard = (props)=>{
     const  {name, examine, icon, id} = props.item;
-    const { addToCart } = props;
+    const { addToCart, quantity, setQuantity } = props;
     const price  = props.price ? props.price : {low: 0} ;
     return (
         <li className="item-card">
@@ -13,7 +14,8 @@ const ItemCard = (props)=>{
                 <img src="https://oldschool.runescape.wiki/images/Coins_5.png?4afbb" alt="Coins" />
                 <p className="price">{price.low.toLocaleString('en-US')}</p>
             </div>
-            <button className="add-to-cart-button" onClick={(e)=> addToCart(e, name, 1)}>Add</button>
+            <button className="add-to-cart-button" onClick={(e)=> addToCart(e, name, quantity)}>Add</button>
+            <QuantitySelect setQuantity={setQuantity}/>
             
         </li>
     )
