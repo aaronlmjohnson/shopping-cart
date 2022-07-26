@@ -3,12 +3,12 @@ import Searchbar from './Searchbar';
 
 
 const Navbar = (props)=>{
-    const {filterItemsByName} = props;
+    const {filterItemsByName, totalQuantity} = props;
     return (
         <nav >
-            <a href="#">Home</a>
+            <a href="/#">Home</a>
             <Searchbar filterItemsByName={filterItemsByName}/>
-            <a href="#">0<img src="https://oldschool.runescape.wiki/images/Basket.png?248b4" alt="Basket" id="checkout-icon"/></a>
+            <a href="/#">{totalQuantity}<img src="https://oldschool.runescape.wiki/images/Basket.png?248b4" alt="Basket" id="checkout-icon"/></a>
         </nav>
     )
 }

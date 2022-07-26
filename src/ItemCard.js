@@ -15,7 +15,7 @@ const ItemCard = (props)=>{
                 <p className="price">{price.low.toLocaleString('en-US')}</p>
             </div>
             <button className="add-to-cart-button" onClick={(e)=> addToCart(e, name, quantity)}>Add</button>
-            <QuantitySelect setQuantity={setQuantity}/>
+            <QuantitySelect setQuantity={setQuantity} id={id}/>
             
         </li>
     )
