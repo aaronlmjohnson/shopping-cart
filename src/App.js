@@ -5,6 +5,9 @@ import useLoadGeItems from './component/useLoadGeItems';
 import useLoadGePrices from './component/useLoadGePrices';
 import Navbar from './component/Navbar';
 import { useState } from 'react';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Checkout from "./component/Checkout";
+import Home from './component/Home';
 
 
 // for(let i = 0; i < 121; i+=12){
@@ -29,7 +32,6 @@ function App() {
     });
 
     calcTotalQuantity(cart);
-    console.log(cart);
   }
 
   const calcTotalQuantity = (cart) =>{
@@ -39,10 +41,16 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <BrowserRouter >
+      <div className="App">
       <Navbar filterItemsByName={filterItemsByName} totalQuantity={totalQuantity}/>
-      <GeItems items={filteredItems} prices={prices} addToCart={addToCart} />
-    </div>
+        <Routes>
+          <Route path="/" element={<Home filteredItems={filteredItems} prices={prices} addToCart={addToCart}/>}>
+          </Route>
+          <Route path="/checkout" element={ <Checkout />}></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

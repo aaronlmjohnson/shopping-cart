@@ -1,14 +1,15 @@
 import "./Navbar.css";
 import Searchbar from './Searchbar';
+import { Link } from "react-router-dom";
 
 
 const Navbar = (props)=>{
     const {filterItemsByName, totalQuantity} = props;
     return (
         <nav >
-            <a href="/#">Home</a>
+            <Link to="/">Home</Link>
             <Searchbar filterItemsByName={filterItemsByName}/>
-            <a href="/#">{totalQuantity}<img src="https://oldschool.runescape.wiki/images/Basket.png?248b4" alt="Basket" id="checkout-icon"/></a>
+            <Link to="/checkout">{totalQuantity}<img src="https://oldschool.runescape.wiki/images/Basket.png?248b4" alt="Basket" id="checkout-icon"/></Link>
         </nav>
     )
 }

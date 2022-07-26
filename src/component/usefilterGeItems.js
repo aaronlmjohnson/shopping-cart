@@ -5,11 +5,11 @@ const useFilterGeItems = (items)=>{
   
     const filterItemsByName = (name)=>{
       const filtered = items.filter((item)=> item.name.toLowerCase().includes(name));
-      setFilteredItems(filtered.length < 48 ? filtered : filtered.slice(0, 47));
+      setFilteredItems(filtered.length < 12 ? filtered : filtered.slice(0, 12));
     };
 
     useEffect(()=>{
-      setFilteredItems(items.slice(0, 47));
+      setFilteredItems(items.slice(0, 12));
     }, [items])
    
   
