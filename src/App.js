@@ -21,15 +21,15 @@ function App() {
     if(quantity < 1) return;
     
     setCart(prevCart =>{
-      prevCart[item] = parseInt(quantity);
+      prevCart[item.id] = {...item, quantity:parseInt(quantity)};
       return prevCart;
     });
     calcTotalQuantity(cart);
-    console.log(totalQuantity);
+    console.log(cart);
   }
 
   const calcTotalQuantity = (cart) =>{
-    setTotalQuantity(Object.keys(cart).map(item=> cart[item]).reduce((prev, curr)=>{
+    setTotalQuantity(Object.keys(cart).map(item=> cart[item].quantity).reduce((prev, curr)=>{
       return prev += curr
     }, 0));
   }

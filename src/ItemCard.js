@@ -14,7 +14,7 @@ const ItemCard = (props)=>{
                 <img src="https://oldschool.runescape.wiki/images/Coins_5.png?4afbb" alt="Coins" />
                 <p className="price">{price.low.toLocaleString('en-US')}</p>
             </div>
-            <button className="add-to-cart-button" onClick={(e)=> addToCart(e, name, quantity)}>Add</button>
+            <button className="add-to-cart-button" onClick={(e)=> addToCart(e, props.item, quantity)}>Add</button>
             <QuantitySelect setQuantity={setQuantity} id={id}/>
             
         </li>
