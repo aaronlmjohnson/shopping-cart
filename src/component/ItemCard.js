@@ -1,4 +1,4 @@
-import QuantitySelect from './component/QuantitySelect';
+import QuantitySelect from './QuantitySelect';
 import './ItemCard.css';
 
 const ItemCard = (props)=>{

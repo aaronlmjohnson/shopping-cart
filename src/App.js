@@ -1,5 +1,5 @@
 import './App.css';
-import GeItems from './GeItems';
+import GeItems from './component/GeItems';
 import useFilterGeItems from './component/usefilterGeItems';
 import useLoadGeItems from './component/useLoadGeItems';
 import useLoadGePrices from './component/useLoadGePrices';
