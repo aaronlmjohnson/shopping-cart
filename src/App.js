@@ -18,12 +18,16 @@ function App() {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   const addToCart = (e, item, quantity)=>{
-    if(quantity < 1) return;
+    if(quantity < 1 && item.quantity) return;
     
     setCart(prevCart =>{
-      prevCart[item.id] = {...item, quantity:parseInt(quantity)};
+      if(quantity === '0')
+        delete prevCart[item.id];
+      else
+        prevCart[item.id] = {...item, quantity:parseInt(quantity)};
       return prevCart;
     });
+
     calcTotalQuantity(cart);
     console.log(cart);
   }
