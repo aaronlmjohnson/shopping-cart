@@ -1,0 +1,26 @@
+#shopping-cart-title{
+    font-size: 36px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.cart-item{
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0 10px;
+    margin: 10px 0;
+    border-bottom: 1px solid black;
+}
+
+.cart-item > img {
+    
+}
+
+.cart-item > h1{
+}
+
+.cart-item-examine{
+    font-style: italic;
+}
