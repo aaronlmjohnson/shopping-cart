@@ -21,6 +21,7 @@ function App() {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   const addToCart = (e, item, quantity)=>{
+    console.log(item);
     if(quantity < 1 && item.quantity) return;
     
     setCart(prevCart =>{
