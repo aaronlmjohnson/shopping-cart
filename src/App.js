@@ -47,7 +47,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home filteredItems={filteredItems} prices={prices} addToCart={addToCart}/>}>
           </Route>
-          <Route path="/checkout" element={ <Checkout />}></Route>
+          <Route path="/checkout" element={ <Checkout cart = {cart}/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

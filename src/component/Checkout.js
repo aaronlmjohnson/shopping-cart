@@ -1,9 +1,18 @@
-import Navbar from "./Navbar";
+const Checkout = (props)=>{
+    const { cart } = props;
 
-const Checkout = ()=>{
     return (
-        <div>
-            <h1>Checkout here!</h1>
+        <div id="checkout">
+            {Object.keys(cart).map((key)=>{
+                return (<div className="cart-item">
+                        <img src="#" alt={cart[key].name}/>
+                        <h1>{cart[key].name}</h1>
+                        <p>{cart[key].examine}</p>
+                        <p>Qty: {cart[key].quantity}</p>
+                        <p>0 gold</p>
+                        <button>delete</button>
+                </div>)
+            })}
         </div>
     )
 }
