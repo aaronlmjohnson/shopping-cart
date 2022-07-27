@@ -21,7 +21,6 @@ function App() {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   const addToCart = (e, item, quantity)=>{
-    console.log(item);
     if(quantity < 1 && item.quantity) return;
     
     setCart(prevCart =>{
@@ -30,6 +29,16 @@ function App() {
       else
         prevCart[item.id] = {...item, quantity:parseInt(quantity)};
       return prevCart;
+    });
+
+    calcTotalQuantity(cart);
+  }
+
+  const removeFromCart = (e, id)=>{
+    setCart(prevCart =>{
+
+      delete prevCart[id];
+      return {...prevCart};
     });
 
     calcTotalQuantity(cart);
@@ -48,7 +57,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home filteredItems={filteredItems} prices={prices} addToCart={addToCart}/>}>
           </Route>
-          <Route path="/checkout" element={ <Checkout cart = {cart}/>}></Route>
+          <Route path="/checkout" element={ <Checkout cart = {cart} removeFromCart={removeFromCart}/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
