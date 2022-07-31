@@ -1,8 +1,11 @@
 const Searchbar = (props)=>{
-    const {filterItemsByName} = props;
+    const {filterItemsByName, setPage} = props;
     return (
         <div id="searchbar">
-            <input type="text" onChange={(e)=>filterItemsByName(e.target.value)}></input>
+            <input type="text" onChange={(e)=>{
+                setPage(0);
+                filterItemsByName(e.target.value);
+            }}/>
         </div>
     )
 }

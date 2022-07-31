@@ -17,7 +17,7 @@ function App() {
   const { filteredItems, filterItemsByName } = useFilterGeItems(items);
   const [ cart, setCart ] =  useState({});
   const [totalQuantity, setTotalQuantity] = useState(0);
-  const [page, setPage] = useState(0);//for active page
+  const [page, setPage] = useState(0);
 
   const addToCart = (e, item, quantity)=>{
     if(quantity < 1 && item.quantity) return;
@@ -48,13 +48,11 @@ function App() {
       return prev += curr
     }, 0));
   }
-
- //divideIntoPages(filteredItems)
   
   return (
     <BrowserRouter >
       <div className="App">
-      <Navbar filterItemsByName={filterItemsByName} totalQuantity={totalQuantity}/>
+      <Navbar filterItemsByName={filterItemsByName} totalQuantity={totalQuantity} setPage={setPage}/>
         <Routes>
           <Route path="/" element={<Home filteredItems={filteredItems[page]} prices={prices} addToCart={addToCart}/>}>
           </Route>
