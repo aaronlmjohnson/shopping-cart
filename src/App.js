@@ -1,15 +1,12 @@
 import './App.css';
-import GeItems from './component/GeItems';
+import { useState } from 'react';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Navbar from './component/Navbar';
+import Checkout from "./component/Checkout";
+import Home from './component/Home';
 import useFilterGeItems from './component/usefilterGeItems';
 import useLoadGeItems from './component/useLoadGeItems';
 import useLoadGePrices from './component/useLoadGePrices';
-import Navbar from './component/Navbar';
-import { useEffect, useState } from 'react';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Checkout from "./component/Checkout";
-import Home from './component/Home';
-
-
 
 function App() {
   const { items } = useLoadGeItems([]);
@@ -54,10 +51,17 @@ function App() {
       <div className="App">
       <Navbar filterItemsByName={filterItemsByName} totalQuantity={totalQuantity} setPage={setPage}/>
         <Routes>
-          <Route path="/" element={<Home filteredItems={filteredItems[page]} prices={prices} addToCart={addToCart}/>}>
+          <Route path="/" element={
+            <Home 
+              filteredItems={filteredItems[page]} 
+              prices={prices} addToCart={addToCart} 
+              pageCount={filteredItems.length} 
+              setPage={setPage}/>
+            }>
           </Route>
           <Route path="/checkout" element={ <Checkout cart = {cart} removeFromCart={removeFromCart}/>}></Route>
         </Routes>
+        
       </div>
     </BrowserRouter>
   );
