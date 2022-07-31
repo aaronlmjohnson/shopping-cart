@@ -4,21 +4,20 @@ import useFilterGeItems from './component/usefilterGeItems';
 import useLoadGeItems from './component/useLoadGeItems';
 import useLoadGePrices from './component/useLoadGePrices';
 import Navbar from './component/Navbar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Checkout from "./component/Checkout";
 import Home from './component/Home';
 
 
-// for(let i = 0; i < 121; i+=12){
-//   splitByTwelve.push(numbers.slice(i, numbers[i+10-1] ? i+10 : numbers.length -1])); <-- for seperating into pages with twelve items each
-// }
+
 function App() {
   const { items } = useLoadGeItems([]);
   const { prices } = useLoadGePrices([]);
   const { filteredItems, filterItemsByName } = useFilterGeItems(items);
   const [ cart, setCart ] =  useState({});
   const [totalQuantity, setTotalQuantity] = useState(0);
+  const [page, setPage] = useState(0);//for active page
 
   const addToCart = (e, item, quantity)=>{
     if(quantity < 1 && item.quantity) return;
@@ -50,12 +49,14 @@ function App() {
     }, 0));
   }
 
+ //divideIntoPages(filteredItems)
+  
   return (
     <BrowserRouter >
       <div className="App">
       <Navbar filterItemsByName={filterItemsByName} totalQuantity={totalQuantity}/>
         <Routes>
-          <Route path="/" element={<Home filteredItems={filteredItems} prices={prices} addToCart={addToCart}/>}>
+          <Route path="/" element={<Home filteredItems={filteredItems[page]} prices={prices} addToCart={addToCart}/>}>
           </Route>
           <Route path="/checkout" element={ <Checkout cart = {cart} removeFromCart={removeFromCart}/>}></Route>
         </Routes>
