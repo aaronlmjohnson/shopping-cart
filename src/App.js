@@ -45,7 +45,8 @@ function App() {
       return prev += curr
     }, 0));
   }
-  
+
+
   return (
     <BrowserRouter >
       <div className="App">
@@ -55,8 +56,8 @@ function App() {
             <Home 
               filteredItems={filteredItems[page]} 
               prices={prices} addToCart={addToCart} 
-              pageCount={filteredItems.length} 
-              setPage={setPage}/>
+              setPage = {setPage}
+              />
             }>
           </Route>
           <Route path="/checkout" element={ <Checkout cart = {cart} removeFromCart={removeFromCart}/>}></Route>
