@@ -1,6 +1,8 @@
+import './Pagination.css';
+
 const Pagination = ()=>{
     return( 
-    <div>
+    <div id="pagination">
         <button>Pagination button</button>
     </div>);
 }
