@@ -11,7 +11,7 @@ import useLoadGePrices from './component/useLoadGePrices';
 function App() {
   const { items } = useLoadGeItems([]);
   const { prices } = useLoadGePrices([]);
-  const { filteredItems, filterItemsByName } = useFilterGeItems(items);
+  const { filteredItems, filterItemsByName, pageCount } = useFilterGeItems(items);
   const [ cart, setCart ] =  useState({});
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [page, setPage] = useState(0);
@@ -57,6 +57,7 @@ function App() {
               filteredItems={filteredItems[page]} 
               prices={prices} addToCart={addToCart} 
               setPage = {setPage}
+              pageCount = {pageCount}
               />
             }>
           </Route>
