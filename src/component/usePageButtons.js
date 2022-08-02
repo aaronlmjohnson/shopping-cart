@@ -28,5 +28,3 @@ const createNumOfPages = (length)=>{
 
 export default usePageButtons;
 
-// I want to filter the page numbers to only show a range of +-2 
-// ex. active page = 4 display  2 3 [4] 5 6

@@ -48,6 +48,11 @@ function App() {
     }, 0));
   }
 
+  const handlePaginationClick = (e)=>{
+    if(e.target.className === "pagination-button") setPage(parseInt(e.target.value))
+    else if(e.target.className === "back-page-button") setPage(page < 1 ? page : page-1);
+    else setPage(pagesArr[pagesArr.length - 1]);
+  }
 
   return (
     <BrowserRouter >
@@ -61,6 +66,7 @@ function App() {
               setPage = {setPage}
               page = {page}
               pagesArr = {pagesArr}
+              handlePaginationClick={handlePaginationClick}
               />
             }>
           </Route>
