@@ -16,7 +16,7 @@ function App() {
   const [ cart, setCart ] =  useState({});
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [page, setPage] = useState(0);
-  const { pagesArr } = usePageButtons(filteredItems.length);
+  const { pagesArr } = usePageButtons(filteredItems.length, page);
 
   const addToCart = (e, item, quantity)=>{
     if(quantity < 1 && item.quantity) return;

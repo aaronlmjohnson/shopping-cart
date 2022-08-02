@@ -1,11 +1,15 @@
 import './Pagination.css';
 
 const Pagination = (props)=>{
-    const {pagesArr} = props; 
+    const {pagesArr, setPage} = props; 
 
     return( 
     <div id="pagination">
-        {pagesArr.map((pageNum)=><button className="pagination-button" key={pageNum+1}>{pageNum+1}</button>)}
+        <button> {'<'} </button>
+        {pagesArr.map((pageNum, i)=>
+            <button className="pagination-button" onClick={(e)=> setPage(parseInt(e.target.value))} key={pageNum+1} value={pageNum}>{pageNum+1}</button>)}
+        <button> {'>'} </button>
+
     </div>);
 }
 
