@@ -59,6 +59,7 @@ function App() {
               filteredItems={filteredItems[page]} 
               prices={prices} addToCart={addToCart} 
               setPage = {setPage}
+              page = {page}
               pagesArr = {pagesArr}
               />
             }>

@@ -1,21 +1,19 @@
 import './Pagination.css';
 
 const Pagination = (props)=>{
-    const {pagesArr, setPage} = props; 
-
+    const {pagesArr, setPage, page} = props; 
+    console.log(pagesArr);
     return( 
     <div id="pagination">
-        <button> {'<'} </button>
+        <button className='back-page-button' onClick={(e)=> setPage(page < 1 ? page : page-1)}> {'<'} </button>
         {pagesArr.map((pageNum, i)=>
             <button className="pagination-button" onClick={(e)=> setPage(parseInt(e.target.value))} key={pageNum+1} value={pageNum}>{pageNum+1}</button>)}
-        <button> {'>'} </button>
+        <button className='forward-page-button' onClick={(e)=> setPage(pagesArr[pagesArr.length - 1] === page ? page : page+1)}> {'>'} </button> 
+        
 
     </div>);
 }
 
 export default Pagination;
 
-//To make the buttons I need to know:
-//How many filtered pages there are
-//the current active page
-
+//think of way to stop forward button from working at the end of pages. 

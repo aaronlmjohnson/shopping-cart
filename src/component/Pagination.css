@@ -1,6 +1,6 @@
 #pagination {
-    width: 100%;
+    width: 33%;
     display: grid;
-    justify-content: center;
+    justify-self: center;
     grid-template-columns: repeat(12, 1fr);
 }
