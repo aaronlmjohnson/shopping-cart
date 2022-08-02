@@ -1,11 +1,11 @@
 import './Pagination.css';
 
 const Pagination = (props)=>{
-    const {pageCount} = props; 
+    const {pagesArr} = props; 
 
     return( 
     <div id="pagination">
-        {pageCount.map((pageNum)=><button className="pagination-button" key={pageNum+1}>{pageNum+1}</button>)}
+        {pagesArr.map((pageNum)=><button className="pagination-button" key={pageNum+1}>{pageNum+1}</button>)}
     </div>);
 }
 

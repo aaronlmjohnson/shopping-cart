@@ -7,14 +7,16 @@ import Home from './component/Home';
 import useFilterGeItems from './component/usefilterGeItems';
 import useLoadGeItems from './component/useLoadGeItems';
 import useLoadGePrices from './component/useLoadGePrices';
+import usePageButtons from './component/usePageButtons';
 
 function App() {
   const { items } = useLoadGeItems([]);
   const { prices } = useLoadGePrices([]);
-  const { filteredItems, filterItemsByName, pageCount } = useFilterGeItems(items);
+  const { filteredItems, filterItemsByName } = useFilterGeItems(items);
   const [ cart, setCart ] =  useState({});
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [page, setPage] = useState(0);
+  const { pagesArr } = usePageButtons(filteredItems.length);
 
   const addToCart = (e, item, quantity)=>{
     if(quantity < 1 && item.quantity) return;
@@ -57,7 +59,7 @@ function App() {
               filteredItems={filteredItems[page]} 
               prices={prices} addToCart={addToCart} 
               setPage = {setPage}
-              pageCount = {pageCount}
+              pagesArr = {pagesArr}
               />
             }>
           </Route>
